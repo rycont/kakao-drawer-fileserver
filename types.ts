@@ -19,3 +19,7 @@ export interface File {
   mimeType: string;
   size: number;
 }
+
+export interface DownloadableFile extends File {
+  downloadableUrl: string;
+}

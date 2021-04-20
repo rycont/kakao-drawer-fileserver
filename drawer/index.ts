@@ -2,7 +2,7 @@ import { AuthApiClient, ServiceApiClient } from 'node-kakao'
 import fetch, { Headers } from 'node-fetch'
 import readlineAsync from 'readline';
 import { stdin } from 'process';
-import { File } from '../types';
+import { DownloadableFile, File } from '../types';
 
 export const users: Record<string, Drawer> = {}
 
@@ -92,19 +92,31 @@ export class Drawer {
         Cookie: this.cookie
       })
     })).json()) as { items: File[] }
-    console.log(files)
-    return files.items
+
+    return files.items.map(file => ({
+      ...file,
+      downloadableUrl: `/download/${file.id}`
+    }))
   }
 
   registerToStore() {
     users[this.email] = this
   }
 
+  async findFile(fileId: string): Promise<DownloadableFile> {
+    if (!this.cookie) throw new Error("Not logged in yet")
+    const foundFile = (await this.getPublicFileList()).find(file => file.id === fileId)
+    if (!foundFile) throw new Error(`File not found : ${fileId}`)
+
+    return {
+      ...foundFile,
+      downloadableUrl: `/download/${foundFile.id}`
+    }
+  }
+
   async downloadFile(requestedId: string) {
     if (!this.cookie) throw new Error("Not logged in yet")
-    const foundFile = (await this.getPublicFileList()).find(file => file.id === requestedId)
-    if (!foundFile) throw new Error(`File not found : ${requestedId}`)
-
+    const foundFile = await this.findFile(requestedId)
     return {
       fetch: fetch(foundFile.url, {
         headers: new Headers({

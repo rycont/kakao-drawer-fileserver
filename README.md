@@ -37,6 +37,12 @@ public_folder에 작성한 폴더의 파일 목록을 반환합니다.
 
 ## /file/:fileId
 
+`-> File`
+
+파일의 상세 정보를 반환합니다.
+
+## /download/:fileId
+
 `-> 파일 다운로드`
 
 public_folder에 작성한 폴더에서 id가 `fileId`인 파일을 다운로드합니다.
@@ -64,5 +70,6 @@ interface File {
   originalFileName: string;
   mimeType: string;
   size: number;
+  downloadableUrl?: string;
 }
 ```
