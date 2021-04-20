@@ -42,7 +42,7 @@ export class Drawer {
     }
 
     let loginRequest = await api.login(loginform)
-    console.log(loginRequest, loginform)
+    console.log(loginform.email, '계정으로 로그인을 시도합니다.')
     while (!loginRequest.success) {
       await api.requestPasscode(loginform)
       const passcode = await readline('전송된 인증번호를 입력해주세요');
@@ -59,6 +59,7 @@ export class Drawer {
 
     if (!loginRequest.success) throw new Error("로그인에 문제가 발생했습니다.")
 
+    console.log('로그인에 성공했습니다.')
     const service = await ServiceApiClient.create(loginRequest.result)
     const fetchedUrl = await service.requestSessionURL('https://drive.kakao.com/')
     if (!fetchedUrl.success) {
