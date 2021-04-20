@@ -1,0 +1,36 @@
+Arguments: 
+  /usr/bin/node /usr/bin/yarn add @storycraft/node-kakao
+
+PATH: 
+  /home/rycont/.deno/bin:/home/rycont/.vscode-server/bin/3c4e3df9e89829dce27b7b5c24508306b151f30d/bin:/home/rycont/.deno/bin:/home/rycont/miniconda3/bin:/home/rycont/miniconda3/condabin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/mnt/c/Program Files/Common Files/Oracle/Java/javapath:/mnt/c/Program Files (x86)/Common Files/Intel/Shared Libraries/redist/intel64/compiler:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0:/mnt/c/Windows/System32/OpenSSH:/mnt/c/Program Files/nodejs:/mnt/c/Program Files (x86)/Yarn/bin:/mnt/c/ProgramData/chocolatey/bin:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/mnt/c/Program Files/Common Files/Autodesk Shared:/mnt/c/Program Files/Microsoft SQL Server/120/Tools/Binn:/mnt/c/Program Files/dotnet:/mnt/c/Program Files/Git/cmd:/mnt/c/Users/react/AppData/Local/Programs/Python/Python39/Scripts:/mnt/c/Users/react/AppData/Local/Programs/Python/Python39:/mnt/c/Users/react/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/react/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Program Files/Bandizip:/mnt/c/Users/react/AppData/Roaming/npm:/mnt/c/Users/react/AppData/Local/Yarn/bin:/mnt/d/datas/bins:/mnt/c/Program Files/Java/jdk-11.0.9/bin:/mnt/c/Users/react/Documents/bin:/mnt/c/Users/react/Documents/bin/flutter/bin:/mnt/c/Users/react/AppData/Local/Android/Sdk/platform-tools
+
+Yarn version: 
+  1.22.10
+
+Node version: 
+  15.5.0
+
+Platform: 
+  linux x64
+
+Trace: 
+  Error: https://registry.yarnpkg.com/@storycraft%2fnode-kakao: Not found
+      at Request.params.callback [as _callback] (/usr/lib/node_modules/yarn/lib/cli.js:66988:18)
+      at Request.self.callback (/usr/lib/node_modules/yarn/lib/cli.js:140662:22)
+      at Request.emit (node:events:376:20)
+      at Request.<anonymous> (/usr/lib/node_modules/yarn/lib/cli.js:141634:10)
+      at Request.emit (node:events:376:20)
+      at IncomingMessage.<anonymous> (/usr/lib/node_modules/yarn/lib/cli.js:141556:12)
+      at Object.onceWrapper (node:events:482:28)
+      at IncomingMessage.emit (node:events:388:22)
+      at endReadableNT (node:internal/streams/readable:1305:12)
+      at processTicksAndRejections (node:internal/process/task_queues:80:21)
+
+npm manifest: 
+  No manifest
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
