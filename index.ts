@@ -18,7 +18,8 @@ app.use(rootRouter.allowedMethods())
 
 const port = process.env['PORT'] || 8080
 
-app.listen(port, () => {
-  console.log('Drawer CDN is listening on port ' + port)
-  loginWithEnvInfo()
+loginWithEnvInfo().then(() => {
+  app.listen(port, () => {
+    console.log('Drawer CDN is listening on port ' + port)
+  })
 })

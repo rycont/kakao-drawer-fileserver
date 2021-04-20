@@ -24,11 +24,14 @@ export class Drawer {
   email: string
   publicFolder?: string
 
-  constructor(email: string, password: string, publicFolder?: string) {
+  constructor(email: string, password: string, publicFolder?: string, callback?: () => void) {
     this.email = email
     this.publicFolder = publicFolder
     this.login(email, password)
-      .then(cookie => this.cookie = cookie)
+      .then(cookie => {
+        this.cookie = cookie
+        callback?.()
+      })
       .catch(e => console.log(e))
   }
 
