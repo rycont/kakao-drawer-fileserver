@@ -6,7 +6,7 @@ export const downloadFile: Controller = async (ctx) => {
   const user = findUser()
   const fetched = await user.downloadFile(fildId)
 
-  const buf = await (await fetched.fetch).buffer()
   ctx.set('Content-disposition', `attachment; filename=${encodeURI(fetched.file.originalFileName)}`)
-  ctx.body = buf
+  ctx.set('Content-Length', fetched.file.size.toString())
+  ctx.body = (await fetched.fetch).body
 }
